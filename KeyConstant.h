@@ -1,4 +1,7 @@
-
+#ifndef KEYCONSTANTS_H
+#define KEYCONSTANTS_H
+#include <map>
+#include <string>
 
 
 class KeyPair
@@ -92,7 +95,7 @@ map<int, KeyPair> Keys::KEYS = {
     {0xDD,{"[VK_OEM_6]", "[OEM_6 (] ])]"}},
     {0xDE,{"[VK_OEM_7]", "[OEM_7 (\" ')]"}},
     {0xDF,{"[VK_OEM_8]", "[OEM_8 (⍞ ))]"}},
-    {0xF0,{"[VK_OEM_ATTN]", "[Qem Attn]"}},
+    {0xF0,{"[VK_OEM_ATTN]", "[Oem Attn]"}},
     {0xF3,{"[VK_OEM_AUTO]", "[Auto]"}},
     {0xE1,{"[VK_OEM_AX]", "[Ax]"}},
     {0xF5,{"[VK_OEM_BACKTAB]", "[Back Tab]"}},
