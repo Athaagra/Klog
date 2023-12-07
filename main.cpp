@@ -5,6 +5,7 @@
 #include "Base64.h"
 #include "IO.h"
 #include "Timer.h"
+#include "Sendmail.h"
 #include "keybhook.h"
 using namespace std;
 
