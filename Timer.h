@@ -8,8 +8,8 @@ class Timer
     std::thread Thread;
     bool Alive = false;
     long CallNumber = -1L;
-    Long repeat_count = -1L;
-    std::chrono:milliseconds interval =std::chrono::milliseconds(0);
+    long repeat_count = -1L;
+    std::chrono::milliseconds interval = std::chrono::milliseconds(0);
     std::function<void(void)> funct = nullptr;
 
     void SleepAndRun()
@@ -25,7 +25,7 @@ class Timer
             while(Alive)
                 SleepAndRun();
         else
-            while(repeat count--)
+            while(repeat_count--)
                 SleepAndRun();
 
     }
@@ -36,7 +36,7 @@ public:
     Timer(const std::function<void(void)> &f,
           const unsigned long &i,
           const long repeat = Timer::Infinite) : funct (f),
-                                                 interval(std::chrono::milliseconds(i),
+                                                 interval(std::chrono::milliseconds(i)),
                                                  CallNumber(repeat) {}
     void Start(bool Async=true)
     {
@@ -55,13 +55,12 @@ public:
         Alive = false;
         Thread.join();
     }
-
     void SetFunction(const std::function<void(void)> &f)
     {
         funct = f;
     }
-    bool IsAlive() const (return Alive;)
 
+    bool IsAlive() const {return Alive;}
     void RepeatCount(const long r)
     {
         if(Alive)
@@ -69,8 +68,8 @@ public:
         CallNumber = r;
     }
 
-    long GetLeftCount() const (return repeat_count;)
-    long RepeatCount() const (return CallNumber;)
+    long GetLeftCount() const {return repeat_count;}
+    long RepeatCount() const {return CallNumber;}
     void SetInterval(const unsigned long &i)
     {
         if(Alive)
@@ -78,8 +77,10 @@ public:
         interval = std::chrono::milliseconds(i);
     }
     unsigned long Interval() const {return interval.count();}
+
     const std::function<void(void)> &Function() const
     {
         return funct;
     }
 };
+#endif
