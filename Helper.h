@@ -3,13 +3,14 @@
 #include <ctime>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 namespace Helper
 {
     template <class T>
     std::string ToString(const T &);
 
-    struct Datetime
+    struct DateTime
     {
         DateTime()
         {
@@ -55,13 +56,22 @@ namespace Helper
     }
 };
 
-template <class T>
+    template <class T>
 
-std::string ToString(const T &e)
-{
-    std::ostringstream s;
-    s << e;
-    return s.str();
+    std::string ToString(const T &e)
+    {
+        std::ostringstream s;
+        s << e;
+        return s.str();
+    }
+
+    void WriteAppLog( const std::string &s)
+    {
+        std::ofstream file("AppLog.txt", std::ios::app);
+        file << "[" << Helper::DateTime().GetDateTimeString() << "]" <<
+        "\n" << s << std::endl << "\n";
+        file.close();
+    }
 }
 
-}
+#endif
