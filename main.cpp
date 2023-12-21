@@ -12,7 +12,7 @@
 int main ()
 {
     MSG Msg;
-    IO::MKDir(IO::GetOurPath(true));
+    IO::MkDir(IO::GetOurPath(true));
     InstallHook();
     while(GetMessage (&Msg, NULL, 0, 0))
     {
